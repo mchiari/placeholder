@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchFeed, getAllFeed } from '../../features/cardSlice';
+import { useDispatch } from 'react-redux';
+import { fetchFeed } from '../../features/cardSlice';
 import Feed from '../Feed/Feed';
 
 const Home = () => {
