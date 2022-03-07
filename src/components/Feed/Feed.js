@@ -6,7 +6,7 @@ import Card from '../Card/Card';
 const Feed = () => {
 	const posts = useSelector(getAllFeed);
 	const feed = posts.posts;
-	console.log('fetched:', feed);
+	//console.log('fetched:', feed);
 
 	return (
 		<div>

@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchFeed } from '../../features/cardSlice';
 
-const Card = async (props) => {
-	const feed = await props.feed;
-	console.log(feed[0]);
+const Card = (props) => {
+	const feed = props.feed;
+	console.log('card feed', feed);
 
-	console.log('feed[0]', feed[0]);
-	console.log('feed[0].Id', feed[0].id);
+	// console.log('feed[0]', feed[0]);
+	// console.log('feed[0].Id', feed[0].id);
 
 	return (
 		<div className='card-container'>
@@ -15,7 +15,7 @@ const Card = async (props) => {
 				<div className='card-top'>
 					<div className='card-post'>
 						User Id
-						{feed[0].id}
+						{/* {feed[0].id} */}
 					</div>
 				</div>
 				<div className='card-bot'>
