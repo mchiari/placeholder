@@ -8,7 +8,7 @@ const Header = () => {
 		<div className='header-container'>
 			<div className='header-logo'>Your mock feed</div>
 			<div className='header-userlogo'>
-				<img src={logo} />
+				<img alt='placeholder logo' src={logo} />
 			</div>
 		</div>
 	);
