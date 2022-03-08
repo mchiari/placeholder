@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getAllFeed, getUsers, setUsers } from '../../features/cardSlice';
+import { getAllFeed, getUsers } from '../../features/cardSlice';
 import Card from '../Card/Card';
-import SearchBar from '../SearchBar/SearchBar';
 import './Feed.css';
 
 const Feed = () => {
@@ -23,6 +22,7 @@ const Feed = () => {
 			[array[i], array[j]] = [array[j], array[i]];
 		}
 	}
+	shuffleArray(postsArray);
 
 	return (
 		<div className='feed-wrapper'>

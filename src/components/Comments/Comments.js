@@ -6,27 +6,29 @@ import './Comments.css';
 const Comments = () => {
 	const comments = useSelector(getComments);
 
+	const com = comments;
+
 	return (
 		<div>
 			<div className='comment'>
-				<div className='comment-user'>{comments[0]?.email} </div>
-				<div className='comment-comment'>{comments[0]?.body}</div>
+				<div className='comment-user'>{com[0]?.email} </div>
+				<div className='comment-comment'>{com[0]?.body}</div>
 			</div>
 			<div className='comment'>
-				<div className='comment-user'>{comments[1]?.email} </div>
-				<div className='comment-comment'>{comments[1]?.body}</div>
+				<div className='comment-user'>{com[1]?.email} </div>
+				<div className='comment-comment'>{com[1]?.body}</div>
 			</div>
 			<div className='comment'>
-				<div className='comment-user'>{comments[2]?.email} </div>
-				<div className='comment-comment'>{comments[2]?.body}</div>
+				<div className='comment-user'>{com[2]?.email} </div>
+				<div className='comment-comment'>{com[2]?.body}</div>
 			</div>
 			<div className='comment'>
-				<div className='comment-user'>{comments[3]?.email} </div>
-				<div className='comment-comment'>{comments[3]?.body}</div>
+				<div className='comment-user'>{com[3]?.email} </div>
+				<div className='comment-comment'>{com[3]?.body}</div>
 			</div>
 			<div className='comment'>
-				<div className='comment-user'>{comments[4]?.email} </div>
-				<div className='comment-comment'>{comments[4]?.body}</div>
+				<div className='comment-user'>{com[4]?.email} </div>
+				<div className='comment-comment'>{com[4]?.body}</div>
 			</div>
 		</div>
 	);

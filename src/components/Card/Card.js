@@ -10,20 +10,27 @@ const Card = (props) => {
 	const user = props.users;
 
 	// state pra determinar se mostra ou não os comments
-	const [isHidden, setIsHidden] = useState(false);
+	const [isHidden, setIsHidden] = useState(true);
 
 	// Percorre o array de usuários para ver qual bate com o do post em questão e poder mostrar o @user
 	let u = 'user';
 	for (let index = 0; index < user?.length; index++) {
 		if (user[index]?.id === feed?.userId) {
-			u = user[index]?.id;
+			u = feed?.userId - 1;
 		}
 	}
 
 	const handlePostSelection = () => {
 		dispatch(selectPost(feed));
 		dispatch(fetchComments(feed?.id));
-		setIsHidden(!isHidden);
+		setIsHidden(false);
+		if (isHidden === true) {
+			setIsHidden(false);
+		}
+		if (isHidden === false) {
+			setIsHidden(true);
+		}
+		// setIsHidden(!isHidden);
 	};
 
 	return (
@@ -31,14 +38,14 @@ const Card = (props) => {
 			<div className='card-wrapper'>
 				<div className='card-top'>
 					<div className='card-user'>
-						#{feed?.id} @{user[u]?.username.toLowerCase()}
+						#{feed?.id} @{user[u]?.name}
 					</div>
 					<div className='card-title'>{feed?.title}</div>
 					<div className='card-body'>{feed?.body}</div>
 				</div>
 				<div className='card-bot'>
 					<div className='card-comments-show'>
-						{isHidden && <Comments postId={feed?.id} />}
+						{isHidden ? null : <Comments postId={feed?.id} />}
 						<div
 							className='see-comments'
 							onClick={() => {
