@@ -2,35 +2,91 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const url = 'https://jsonplaceholder.typicode.com/users/1/posts';
+const url = 'https://jsonplaceholder.typicode.com';
 
-export const fetchFeed = createAsyncThunk('posts/fetchFeed', async () => {
-	const response = await axios.get(url);
+//pega todos os posts
+export const fetchFeed = createAsyncThunk('phState/fetchFeed', async () => {
+	const response = await axios.get(url + `/posts`);
 	return response.data;
 });
 
+//pega todos os usuarios
+export const fetchUsers = createAsyncThunk('phState/fetchUsers', async () => {
+	const response = await axios.get(url + `/users`);
+	return response.data;
+});
+
+// //pega um usuário específico
+// export const fetchUser = createAsyncThunk('phState/fetchUser', async () => {
+// 	const response = await axios.get(url + `/users`);
+// 	return response.data;
+// });
+
+//pega os comentarios de determinado post
+export const fetchComments = createAsyncThunk(
+	'phState/fetchComments',
+	async (postId) => {
+		const response = await axios.get(url + `/comments?postId=${postId}`);
+		return response.data;
+	}
+);
+
 const initialState = {
 	posts: {},
+	users: {},
+	comments: {},
+	selectedUser: {},
 	selectedPost: {},
 };
 
 const cardSlice = createSlice({
-	name: 'posts',
+	name: 'phState',
 	initialState,
-	reducers: {},
+	reducers: {
+		selectPost: (state, { payload }) => {
+			state.selectedPost = payload;
+		},
+		selectComments: (state, { payload }) => {
+			state.comments = payload;
+		},
+	},
 	extraReducers: {
 		[fetchFeed.pending]: () => {
-			console.log('Pendiiiiing');
+			console.log('Pendiiiiing all posts');
 		},
 		[fetchFeed.rejected]: () => {
 			console.log('Rejected ):');
 		},
 		[fetchFeed.fulfilled]: (state, { payload }) => {
-			console.log('Fetched!!');
+			console.log('Fetched all posts!!');
 			return { ...state, posts: payload };
+		},
+		[fetchUsers.pending]: () => {
+			console.log('Pendiiiiing users');
+		},
+		[fetchUsers.rejected]: () => {
+			console.log('Rejected ):');
+		},
+		[fetchUsers.fulfilled]: (state, { payload }) => {
+			console.log('Fetched users!!');
+			return { ...state, users: payload };
+		},
+		[fetchComments.pending]: () => {
+			console.log('Pendiiiiing Comments');
+		},
+		[fetchComments.rejected]: () => {
+			console.log('Rejected ):');
+		},
+		[fetchComments.fulfilled]: (state, { payload }) => {
+			console.log('Fetched Comments!!');
+			return { ...state, comments: payload };
 		},
 	},
 });
 
 export default cardSlice.reducer;
-export const getAllFeed = (state) => state.posts;
+export const { selectPost, selectComments } = cardSlice.actions;
+export const getAllFeed = (state) => state.phState.posts;
+export const getUsers = (state) => state.phState.users;
+export const getComments = (state) => state.phState.comments;
+export const getPost = (state) => state.phState.selectedPost;

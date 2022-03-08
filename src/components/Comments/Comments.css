@@ -1,0 +1,15 @@
+.comment {
+	font-size: 12px;
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.comment-user {
+	color: #c65d7b;
+	padding: 0 40px;
+}
+
+.comment-comment {
+	padding: 0 30px;
+}

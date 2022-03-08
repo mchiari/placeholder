@@ -3,7 +3,7 @@ import cardReducer from './cardSlice';
 
 const store = configureStore({
 	reducer: {
-		posts: cardReducer,
+		phState: cardReducer,
 	},
 });
 

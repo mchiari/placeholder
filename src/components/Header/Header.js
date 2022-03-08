@@ -2,13 +2,14 @@ import React from 'react';
 import './Header.css';
 
 const Header = () => {
+	const logo = require('../../images/placeholderlogo.png');
+
 	return (
 		<div className='header-container'>
-			<div className='header-logo'>Placeholder</div>
-			<div className='header-search'>
-				<input type='text' placeholder='search for something' />
+			<div className='header-logo'>Your mock feed</div>
+			<div className='header-userlogo'>
+				<img src={logo} />
 			</div>
-			<div className='header-userlogo'>userlogo</div>
 		</div>
 	);
 };
