@@ -1,44 +1,50 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getAllPhotos } from '../../features/photoSlice';
+import { getAllPhotos, getSelectedPhotos } from '../../features/photoSlice';
+import './PhotoDetail.css';
 
 const PhotoDetail = () => {
 	const dispatch = useDispatch();
 	let { photoId } = useParams();
-	const pId = photoId.substring(1);
+	const albumId = photoId.substring(1);
 
 	const allPhotos = useSelector(getAllPhotos);
 
-	// const photo = allPhotos.filter(function (el) {
-	// 	return el.id === photoId;
-	// });
+	const photos = allPhotos.filter(function (el) {
+		return el.id === albumId;
+	});
 
-	function ph(value) {
-		return value === pId;
-	}
+	const selectedPhotos = useSelector(getSelectedPhotos);
 
-	var filtered = allPhotos.filter(ph);
-	console.log(filtered);
+	console.log(selectedPhotos);
 
-	// const mapPhotos = photo.map((el, i) => {
-	// 	return (
-	// 		<div key={i} className='comment'>
-	// 			<div className='comment-user'>{el?.url} </div>
-	// 			<div className='comment-comment'>{el?.title}</div>
-	// 		</div>
-	// 	);
-	// });
-
-	// console.log(allPhotos);
+	const mapPhotos = selectedPhotos.map((el, i) => {
+		return (
+			<div key={i} className='photodetail-wrapper'>
+				<div key={i} className='photodetail-top'>
+					<img
+						key={i}
+						className='photo'
+						alt={el?.title}
+						src={el?.url}
+					/>
+				</div>
+				<div className='photodetail-bottom'>
+					<i>{el?.title}</i>
+				</div>
+			</div>
+		);
+	});
 
 	return (
 		<div className='photodetail-container'>
-			{/* {mapPhotos} */}
-			{/* <div className='photodetail-wrapper'>
-				<div className='photodetail-top'>{photo}</div>
-				<div className='photodetail-bottom'></div>
-			</div> */}
+			<div className='photodetail-allwraper'>
+				<div className='photodetail-title'>
+					<h2>Album ID # {albumId}</h2>
+				</div>
+				{mapPhotos}
+			</div>
 		</div>
 	);
 };

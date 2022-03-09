@@ -17,7 +17,7 @@
 .header-links {
 	display: flex;
 	flex-direction: row;
-	font-size: 20px;
+	font-size: 30px;
 	padding: 0 30px;
 }
 
@@ -30,6 +30,10 @@
 @media screen and (max-width: 800px) {
 	.header-container {
 		flex-direction: column;
+	}
+
+	.header-links {
+		font-size: 30px;
 	}
 
 	.header-container img {

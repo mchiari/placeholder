@@ -1,25 +1,26 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getAllPhotos } from '../../features/photoSlice';
+import { getAllPhotos, selectPhotos } from '../../features/photoSlice';
 import './Photos.css';
 
 const Photos = (props) => {
 	const prop = props;
 	const allPhotos = useSelector(getAllPhotos);
+	const dispatch = useDispatch();
 	// console.log(allComments);
 
-	const fivePhotos = allPhotos.filter(function (el) {
+	const photosFromSpecificAlbum = allPhotos.filter(function (el) {
 		return el.albumId === prop.albumId;
 	});
 
-	// console.log(fiveComments);
+	dispatch(selectPhotos(photosFromSpecificAlbum));
 
-	const mapPhotos = fivePhotos.map((el, i) => {
+	const mapPhotos = photosFromSpecificAlbum.map((el, i) => {
 		return (
-			<Link key={i} to={`/photos/:${el?.albumId}`}>
+			<Link key={el?.id} to={`/photos/:${el?.albumId}`}>
 				<img
-					key={i}
+					key={el?.id}
 					className='photo'
 					alt={el?.title}
 					src={el?.thumbnailUrl}
@@ -28,7 +29,11 @@ const Photos = (props) => {
 		);
 	});
 
-	return <div className='photos'>{mapPhotos}</div>;
+	return (
+		<div key={prop.albumId} className='photos'>
+			{mapPhotos}
+		</div>
+	);
 };
 
 export default Photos;

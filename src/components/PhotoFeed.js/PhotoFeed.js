@@ -43,7 +43,9 @@ const PhotoFeed = () => {
 	return (
 		<div className='feed-wrapper'>
 			<div className='feed-container'>
-				{/* Renderiza um card para cada post do usuário  */}
+				<div className='feed-title'>
+					<h2>Photo Feed</h2>
+				</div>
 				{albumsArray.map((albums, index) => {
 					return (
 						<PhotoCard

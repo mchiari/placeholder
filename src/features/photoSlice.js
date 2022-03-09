@@ -45,7 +45,7 @@ const initialState = {
 	users: {},
 	allPhotos: {},
 	selectedAlbum: {},
-	selectedPhoto: {},
+	selectedPhotos: {},
 };
 
 const photoSlice = createSlice({
@@ -55,8 +55,8 @@ const photoSlice = createSlice({
 		selectAlbum: (state, { payload }) => {
 			state.selectedAlbum = payload;
 		},
-		selectPhoto: (state, { payload }) => {
-			state.selectedPhoto = payload;
+		selectPhotos: (state, { payload }) => {
+			state.selectedPhotos = payload;
 		},
 	},
 	extraReducers: {
@@ -108,3 +108,4 @@ export const { selectAlbum, selectPhotos } = photoSlice.actions;
 export const getUsers = (state) => state.photoState.users;
 export const getAllPhotos = (state) => state.photoState.allPhotos;
 export const getAlbums = (state) => state.photoState.albums;
+export const getSelectedPhotos = (state) => state.photoState.selectedPhotos;

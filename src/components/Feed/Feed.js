@@ -41,6 +41,9 @@ const Feed = () => {
 	return (
 		<div className='feed-wrapper'>
 			<div className='feed-container'>
+				<div className='feed-title'>
+					<h2>Feed</h2>
+				</div>
 				{/* Renderiza um card para cada post do usuário  */}
 				{postsArray.map((post, index) => {
 					return (

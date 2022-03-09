@@ -1,0 +1,38 @@
+.photodetail-container {
+	background: #874356;
+	display: flex;
+	justify-content: center;
+}
+
+.photodetail.allwrapper {
+	background: #f6e7d8;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.photodetail-wrapper {
+	background: #f6e7d8;
+	width: 900px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+}
+
+.photodetail-top img {
+	height: 600px;
+	display: flex;
+	justify-content: center;
+}
+
+.photodetail-bottom i {
+	padding: 15px;
+}
+
+.photodetail-title h2 {
+	padding-top: 30px;
+	background: #f6e7d8;
+	display: flex;
+	justify-content: center;
+}

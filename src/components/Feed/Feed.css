@@ -6,11 +6,7 @@
 }
 
 .feed-wrapper {
-	background-color: #874356;
+	background-color: #c65d7b;
 	display: flex;
 	flex-direction: column;
-}
-
-.searchbar {
-	background: #c65d7b;
 }
