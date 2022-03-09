@@ -4,9 +4,9 @@
 	color: white;
 	display: flex;
 	justify-content: center;
-	flex-direction: column;
 	align-items: center;
 	padding: 15px;
+	flex-direction: column;
 }
 
 .footer-element {
@@ -16,4 +16,9 @@
 .footer-element a {
 	text-decoration: none;
 	color: white;
+}
+
+.footer-element-color a {
+	text-decoration: none;
+	color: #874356;
 }

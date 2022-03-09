@@ -31,10 +31,20 @@ export const fetchComments = createAsyncThunk(
 	}
 );
 
+//pega os comentarios de determinado post
+export const fetchAllComments = createAsyncThunk(
+	'phState/fetchAllComments',
+	async () => {
+		const response = await axios.get(url + `/comments`);
+		return response.data;
+	}
+);
+
 const initialState = {
 	posts: {},
 	users: {},
 	comments: {},
+	allComments: {},
 	selectedUser: {},
 	selectedPost: {},
 };
@@ -81,6 +91,16 @@ const cardSlice = createSlice({
 			console.log('Fetched Comments!!');
 			return { ...state, comments: payload };
 		},
+		[fetchAllComments.pending]: () => {
+			console.log('Pendiiiiing Comments');
+		},
+		[fetchAllComments.rejected]: () => {
+			console.log('Rejected ):');
+		},
+		[fetchAllComments.fulfilled]: (state, { payload }) => {
+			console.log('Fetched All Comments!!');
+			return { ...state, allComments: payload };
+		},
 	},
 });
 
@@ -89,4 +109,5 @@ export const { selectPost, selectComments } = cardSlice.actions;
 export const getAllFeed = (state) => state.phState.posts;
 export const getUsers = (state) => state.phState.users;
 export const getComments = (state) => state.phState.comments;
+export const getAllComments = (state) => state.phState.allComments;
 export const getPost = (state) => state.phState.selectedPost;

@@ -13,3 +13,13 @@
 .header-container img {
 	height: 60px;
 }
+
+@media screen and (max-width: 800px) {
+	.header-container {
+		flex-direction: column;
+	}
+
+	.header-container img {
+		height: 40px;
+	}
+}

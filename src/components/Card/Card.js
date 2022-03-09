@@ -24,13 +24,13 @@ const Card = (props) => {
 		dispatch(selectPost(feed));
 		dispatch(fetchComments(feed?.id));
 		setIsHidden(false);
-		if (isHidden === true) {
-			setIsHidden(false);
-		}
-		if (isHidden === false) {
-			setIsHidden(true);
-		}
-		// setIsHidden(!isHidden);
+		// if (isHidden === true) {
+		// 	setIsHidden(false);
+		// }
+		// if (isHidden === false) {
+		// 	setIsHidden(true);
+		// }
+		setIsHidden(!isHidden);
 	};
 
 	return (
@@ -52,7 +52,7 @@ const Card = (props) => {
 								handlePostSelection();
 							}}
 						>
-							{isHidden ? 'Hide comments' : 'Show comments'}
+							{isHidden ? 'Show comments...' : 'Hide comments...'}
 						</div>
 					</div>
 				</div>

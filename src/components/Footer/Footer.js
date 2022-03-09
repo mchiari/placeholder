@@ -5,13 +5,13 @@ const Footer = () => {
 	return (
 		<div className='footer-container'>
 			<div className='footer-element'>
-				Placeholder App - mock fetching from{' '}
+				<div>Placeholder App - mock fetching from</div>
 				<a href='https://jsonplaceholder.typicode.com/'>
 					https://jsonplaceholder.typicode.com/
 				</a>
 			</div>
 			<div className='footer-element'>made by </div>
-			<div className='footer-element'>
+			<div className='footer-element-color'>
 				<a href='https://github.com/mchiari'>
 					https://github.com/mchiari
 				</a>

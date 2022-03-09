@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchFeed, fetchUsers } from '../../features/cardSlice';
+import {
+	fetchAllComments,
+	fetchFeed,
+	fetchUsers,
+} from '../../features/cardSlice';
 import Feed from '../Feed/Feed';
+import './Home.css';
 
 const Home = () => {
 	const dispatch = useDispatch();
@@ -9,10 +14,11 @@ const Home = () => {
 	useEffect(() => {
 		dispatch(fetchFeed());
 		dispatch(fetchUsers());
+		dispatch(fetchAllComments());
 	}, [dispatch]);
 
 	return (
-		<div>
+		<div className='all-wrapper'>
 			<Feed />
 		</div>
 	);
