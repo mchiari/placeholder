@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getAllPhotos, getSelectedPhotos } from '../../features/photoSlice';
+import { getSelectedPhotos } from '../../features/photoSlice';
 import './PhotoDetail.css';
 
 const PhotoDetail = () => {
