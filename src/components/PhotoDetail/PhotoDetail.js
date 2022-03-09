@@ -1,23 +1,22 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getAllPhotos, getSelectedPhotos } from '../../features/photoSlice';
 import './PhotoDetail.css';
 
 const PhotoDetail = () => {
-	const dispatch = useDispatch();
 	let { photoId } = useParams();
 	const albumId = photoId.substring(1);
 
-	const allPhotos = useSelector(getAllPhotos);
+	// const allPhotos = useSelector(getAllPhotos);
 
-	const photos = allPhotos.filter(function (el) {
-		return el.id === albumId;
-	});
+	// const photos = allPhotos.filter(function (el) {
+	// 	return el.id === albumId;
+	// });
 
 	const selectedPhotos = useSelector(getSelectedPhotos);
 
-	console.log(selectedPhotos);
+	// console.log(selectedPhotos);
 
 	const mapPhotos = selectedPhotos.map((el, i) => {
 		return (
