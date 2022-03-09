@@ -16,12 +16,6 @@ export const fetchUsers = createAsyncThunk('phState/fetchUsers', async () => {
 	return response.data;
 });
 
-// //pega um usuário específico
-// export const fetchUser = createAsyncThunk('phState/fetchUser', async () => {
-// 	const response = await axios.get(url + `/users`);
-// 	return response.data;
-// });
-
 //pega os comentarios de determinado post
 export const fetchComments = createAsyncThunk(
 	'phState/fetchComments',
@@ -31,7 +25,7 @@ export const fetchComments = createAsyncThunk(
 	}
 );
 
-//pega os comentarios de determinado post
+//pega todos os comentarios
 export const fetchAllComments = createAsyncThunk(
 	'phState/fetchAllComments',
 	async () => {
@@ -50,7 +44,7 @@ const initialState = {
 };
 
 const cardSlice = createSlice({
-	name: 'phState',
+	name: 'postsState',
 	initialState,
 	reducers: {
 		selectPost: (state, { payload }) => {
@@ -106,8 +100,8 @@ const cardSlice = createSlice({
 
 export default cardSlice.reducer;
 export const { selectPost, selectComments } = cardSlice.actions;
-export const getAllFeed = (state) => state.phState.posts;
-export const getUsers = (state) => state.phState.users;
-export const getComments = (state) => state.phState.comments;
-export const getAllComments = (state) => state.phState.allComments;
-export const getPost = (state) => state.phState.selectedPost;
+export const getAllFeed = (state) => state.postsState.posts;
+export const getUsers = (state) => state.postsState.users;
+export const getComments = (state) => state.postsState.comments;
+export const getAllComments = (state) => state.postsState.allComments;
+export const getPost = (state) => state.postsState.selectedPost;

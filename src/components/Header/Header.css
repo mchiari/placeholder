@@ -14,6 +14,19 @@
 	height: 60px;
 }
 
+.header-links {
+	display: flex;
+	flex-direction: row;
+	font-size: 20px;
+	padding: 0 30px;
+}
+
+.header-link {
+	text-decoration: none;
+	color: #874356;
+	margin: 20px;
+}
+
 @media screen and (max-width: 800px) {
 	.header-container {
 		flex-direction: column;

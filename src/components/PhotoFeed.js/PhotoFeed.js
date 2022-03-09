@@ -1,33 +1,35 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers, getUsers } from '../../features/photoSlice';
 import {
-	fetchAllComments,
-	fetchFeed,
-	fetchUsers,
-	getAllFeed,
-	getUsers,
-} from '../../features/cardSlice';
-import Card from '../Card/Card';
-import './Feed.css';
+	fetchAlbums,
+	fetchAllPhotos,
+	getAlbums,
+} from '../../features/photoSlice';
+import PhotoCard from '../PhotoCard/PhotoCard';
+import './PhotoFeed.css';
 
-const Feed = () => {
+const PhotoFeed = () => {
 	const dispatch = useDispatch();
-	//Carrega todos os usuários e o feed do usuário selecionado
+
 	useEffect(() => {
-		dispatch(fetchFeed());
+		dispatch(fetchAlbums());
 		dispatch(fetchUsers());
-		dispatch(fetchAllComments());
+		dispatch(fetchAllPhotos());
 	}, [dispatch]);
 
-	const posts = useSelector(getAllFeed);
+	const albums = useSelector(getAlbums);
 	const users = useSelector(getUsers);
-	// setUsers(users);
+
+	// console.log(albums);
+	// console.log(photos);
+	// console.log(users);
 
 	//Joga o feed em um array para que seja percorrido pelo map na hora de renderizar
-	const postsArray = [];
-	for (let index = 0; index < posts?.length; index++) {
+	const albumsArray = [];
+	for (let index = 0; index < albums?.length; index++) {
 		// console.log(feed?.[index]);
-		postsArray.push(posts?.[index]);
+		albumsArray.push(albums?.[index]);
 	}
 
 	function shuffleArray(array) {
@@ -36,25 +38,26 @@ const Feed = () => {
 			[array[i], array[j]] = [array[j], array[i]];
 		}
 	}
-	shuffleArray(postsArray);
+	shuffleArray(albumsArray);
 
 	return (
 		<div className='feed-wrapper'>
 			<div className='feed-container'>
 				{/* Renderiza um card para cada post do usuário  */}
-				{postsArray.map((post, index) => {
+				{albumsArray.map((albums, index) => {
 					return (
-						<Card
+						<PhotoCard
 							key={index}
-							cardId={index}
-							feed={post}
+							photoId={index}
+							feed={albums}
 							users={users}
 						/>
 					);
 				})}
+				testando
 			</div>
 		</div>
 	);
 };
 
-export default Feed;
+export default PhotoFeed;

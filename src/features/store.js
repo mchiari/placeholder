@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cardReducer from './cardSlice';
+import photoReducer from './photoSlice';
 
 const store = configureStore({
 	reducer: {
-		phState: cardReducer,
+		postsState: cardReducer,
+		photoState: photoReducer,
 	},
 });
 
