@@ -1,13 +1,13 @@
-.feed-container {
+.photofeed-container {
 	display: flex;
 	flex-direction: column;
 	max-width: 1200px;
-	min-width: 1000px;
+	min-width: fit-content;
 	flex-wrap: wrap;
 	margin: auto;
 }
 
-.feed-title {
+.photofeed-title {
 	padding-top: 30px;
 	display: flex;
 	justify-content: center;

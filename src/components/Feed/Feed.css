@@ -1,6 +1,8 @@
 .feed-container {
 	display: flex;
-	max-width: 800px;
+	flex-direction: column;
+	max-width: 1200px;
+	min-width: fit-content;
 	flex-wrap: wrap;
 	margin: auto;
 }
@@ -9,4 +11,12 @@
 	background-color: #c65d7b;
 	display: flex;
 	flex-direction: column;
+}
+
+.feed-title {
+	padding-top: 30px;
+	display: flex;
+	justify-content: center;
+	font-size: 2rem;
+	color: #f6e7d8;
 }

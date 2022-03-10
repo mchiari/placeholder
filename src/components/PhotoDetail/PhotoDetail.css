@@ -1,5 +1,5 @@
 .photodetail-container {
-	background: #874356;
+	background: #c65d7b;
 	display: flex;
 	justify-content: center;
 }
@@ -13,7 +13,8 @@
 
 .photodetail-wrapper {
 	background: #f6e7d8;
-	width: 900px;
+	box-shadow: 5px 1px black;
+	min-width: fit-content;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -26,13 +27,20 @@
 	justify-content: center;
 }
 
+@media screen and (max-width: 720px) {
+	.photodetail-top img {
+		height: 250px;
+	}
+}
+
 .photodetail-bottom i {
 	padding: 15px;
 }
 
-.photodetail-title h2 {
+.photodetail-title {
 	padding-top: 30px;
 	background: #f6e7d8;
 	display: flex;
+	box-shadow: 5px 1px black;
 	justify-content: center;
 }

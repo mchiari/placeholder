@@ -21,7 +21,6 @@ const Feed = () => {
 
 	const posts = useSelector(getAllFeed);
 	const users = useSelector(getUsers);
-	// setUsers(users);
 
 	//Joga o feed em um array para que seja percorrido pelo map na hora de renderizar
 	const postsArray = [];

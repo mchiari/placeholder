@@ -41,9 +41,9 @@ const PhotoFeed = () => {
 	shuffleArray(albumsArray);
 
 	return (
-		<div className='feed-wrapper'>
-			<div className='feed-container'>
-				<div className='feed-title'>
+		<div className='photofeed-wrapper'>
+			<div className='photofeed-container'>
+				<div className='photofeed-title'>
 					<h2>Photo Feed</h2>
 				</div>
 				{albumsArray.map((albums, index) => {

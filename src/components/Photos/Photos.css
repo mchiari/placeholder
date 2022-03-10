@@ -6,6 +6,16 @@
 	margin: auto;
 }
 
+@media screen and (max-width: 720px) {
+	.photos {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 5px;
+		padding: 10px;
+		margin: auto;
+	}
+}
+
 .photo {
 	height: 100px;
 }
